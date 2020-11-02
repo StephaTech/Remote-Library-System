@@ -22,7 +22,7 @@ public class Book {
 
 	@Override
 	public String toString() {
-		return "Book [id=" + IntStandBookNumber + ", title=" + title + ", author=" + authorName + "]";
+		return "Book [ISBN:" + IntStandBookNumber + ", Title:" + title + ", Author:" + authorName + "]";
 	}
 	
 	
