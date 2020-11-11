@@ -1,14 +1,13 @@
 
 public class Reader {
 	private int idReader;
-	private String name;
-	private int mobile;//I might can use as a string b/ I wont do any count with
-	
-		
-	public Reader(int idReader, String name, int mobile) {
+	private String readerName;
+	private int mobile;//I might can use as a string b/ I wont do any count with it
+			
+	public Reader(int idReader, String readerName, int mobile) {
 		super();
 		this.idReader = idReader;
-		this.name = name;
+		this.readerName = readerName;
 		this.mobile = mobile;
 	}
 	public int getIdReader() {
@@ -18,10 +17,10 @@ public class Reader {
 		this.idReader = idReader;
 	}
 	public String getName() {
-		return name;
+		return readerName;
 	}
 	public void setName(String name) {
-		this.name = name;
+		this.readerName = name;
 	}
 	public int getMobile() {
 		return mobile;
@@ -31,7 +30,7 @@ public class Reader {
 	}
 	@Override
 	public String toString() {
-		return " [idReader:" + idReader + ", Name:" + name + ", Mobile:" + mobile + "]";
+		return " [idReader:" + idReader + ", Name:" + readerName + ", Mobile:" + mobile + "]";
 	}
 	
 }
