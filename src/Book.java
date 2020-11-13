@@ -10,6 +10,7 @@ public class Book {
     private long isbn;//long because the number is long
     private String title, authorName;
     final ArrayList<Book> records = new ArrayList<>();
+    private StackOverflowError
 
     public Book(final long isbn, final String title, final String authorName) {
 
