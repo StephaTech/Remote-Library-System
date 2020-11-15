@@ -10,9 +10,9 @@ public class Book {
     private long isbn;//long because the number is long
     private String title, authorName;
     final ArrayList<Book> records = new ArrayList<>();
-    private StackOverflowError
+    //private StackOverflowError
 
-    public Book(final long isbn, final String title, final String authorName) {
+     public Book(final long isbn, final String title, final String authorName) {
 
         this.isbn = isbn;
         this.title = title;
@@ -31,7 +31,7 @@ public class Book {
 
             String[] data;
             long isbn;
-            final String name;
+            String title;
             String authorName;
 
             while (contentLine != null) {
