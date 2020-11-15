@@ -9,10 +9,17 @@ public class Book {
 
     private long isbn;//long because the number is long
     private String title, authorName;
+<<<<<<< HEAD
     final ArrayList<Book> records = new ArrayList<>();
     //private StackOverflowError
 
      public Book(final long isbn, final String title, final String authorName) {
+=======
+    public final ArrayList<Book> records = new ArrayList<>();
+    //private StackOverflowError
+
+    public Book(final long isbn,final String title,final String authorName) {
+>>>>>>> 777425f31d9ebdf97c1742efc97285b38cbdd183
 
         this.isbn = isbn;
         this.title = title;
