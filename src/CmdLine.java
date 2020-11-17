@@ -19,9 +19,20 @@ public class CmdLine {
 				searchBook();
 			} else if (option == 2) {
 				listBook();
-			}
-			else if (option == 3) {
+			} else if (option == 3) {
+				searchReader();
+			} else if (option == 4) {
 				listReader();
+			} else if (option == 5) {
+				registReaderborrowed();
+			} else if (option == 6) {
+				readerWaitingList();
+			} else if (option == 7) {
+				registReaderReturns();
+			} else if (option == 8) {
+				listNextReaderBook();
+			} else if (option == 9) {
+				listReaderborrowed();
 			}
 
 		} while (option != 0);
@@ -30,8 +41,6 @@ public class CmdLine {
 		System.exit(0);
 
 	}
-
-	
 
 	private void displayOptions() {
 
@@ -90,7 +99,7 @@ public class CmdLine {
 	}
 
 	private void searchBook() {
-		
+
 		System.out.println("testing");
 
 	}
@@ -104,16 +113,46 @@ public class CmdLine {
 		System.out.println("\\o//\\o//\\o//\\o//\\o//\\o//\\o//\\o//\\\\o//\\o//\\o//\\o//\\o//\\o//\\o//\\o//");
 		System.out.println("\\o//\\o//\\o//\\o//\\o//\\o//\\o//\\o//\\\\o//\\o//\\o//\\o//\\o//\\o//\\o//\\o//");
 	}
+
+	private void searchReader() {
+		// TODO Auto-generated method stub
+
+	}
+
 	private void listReader() {
-		
+
 		Reader reader = new Reader();
 		reader.loadDataReader();
-		
+
 		System.out.println("\\o//\\o//\\o//\\o//\\o//\\o//\\o//\\o//\\\\o//\\o//\\o//\\o//\\o//\\o//\\o//\\o//");
 		System.out.println("\\o//\\o//\\o//\\o//\\o//\\o//\\o//\\o//\\\\o//\\o//\\o//\\o//\\o//\\o//\\o//\\o//");
 		System.out.println("\\o//\\o//\\o//\\o//\\o//\\o//\\o//\\o//\\\\o//\\o//\\o//\\o//\\o//\\o//\\o//\\o//");
 
-		
+	}
+
+	private void registReaderborrowed() {
+		// TODO Auto-generated method stub
+
+	}
+
+	private void readerWaitingList() {
+		// TODO Auto-generated method stub
+
+	}
+
+	private void registReaderReturns() {
+		// TODO Auto-generated method stub
+
+	}
+
+	private void listNextReaderBook() {
+		// TODO Auto-generated method stub
+
+	}
+
+	private void listReaderborrowed() {
+		// TODO Auto-generated method stub
+
 	}
 
 }
