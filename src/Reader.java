@@ -25,7 +25,7 @@ public class Reader {
 	
 	public ArrayList<Reader> loadDataReader(){
 		try {
-			final BufferedReader buff = new BufferedReader(new FileReader("BookInformation.txt"));
+			final BufferedReader buff = new BufferedReader(new FileReader("ReaderInformation.txt"));
 			String contentLine = buff.readLine();
 
             String[] data;
@@ -36,9 +36,9 @@ public class Reader {
             while (contentLine != null) {
 
                 data = contentLine.split(",");
-                idReader = int.parseInt(data[0]);
+                idReader = Integer.parseInt(data[0]);
                 readerName = data[1];
-                mobile = data[2];
+                mobile = Long.parseLong(data[2]);
                 final Reader reader = new Reader(idReader, readerName, mobile);
                 readerRecords.add(reader);
                 contentLine = buff.readLine();
