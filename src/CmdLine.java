@@ -20,13 +20,18 @@ public class CmdLine {
 			} else if (option == 2) {
 				listBook();
 			}
+			else if (option == 3) {
+				listReader();
+			}
 
 		} while (option != 0);
 
-		System.out.println("Thank you and welcome back");
+		System.out.println("Thank you and goodbye");
 		System.exit(0);
 
 	}
+
+	
 
 	private void displayOptions() {
 
@@ -85,7 +90,8 @@ public class CmdLine {
 	}
 
 	private void searchBook() {
-		// TODO Auto-generated method stub
+		
+		System.out.println("testing");
 
 	}
 
@@ -97,6 +103,17 @@ public class CmdLine {
 		System.out.println("\\o//\\o//\\o//\\o//\\o//\\o//\\o//\\o//\\\\o//\\o//\\o//\\o//\\o//\\o//\\o//\\o//");
 		System.out.println("\\o//\\o//\\o//\\o//\\o//\\o//\\o//\\o//\\\\o//\\o//\\o//\\o//\\o//\\o//\\o//\\o//");
 		System.out.println("\\o//\\o//\\o//\\o//\\o//\\o//\\o//\\o//\\\\o//\\o//\\o//\\o//\\o//\\o//\\o//\\o//");
+	}
+	private void listReader() {
+		
+		Reader reader = new Reader();
+		reader.loadDataReader();
+		
+		System.out.println("\\o//\\o//\\o//\\o//\\o//\\o//\\o//\\o//\\\\o//\\o//\\o//\\o//\\o//\\o//\\o//\\o//");
+		System.out.println("\\o//\\o//\\o//\\o//\\o//\\o//\\o//\\o//\\\\o//\\o//\\o//\\o//\\o//\\o//\\o//\\o//");
+		System.out.println("\\o//\\o//\\o//\\o//\\o//\\o//\\o//\\o//\\\\o//\\o//\\o//\\o//\\o//\\o//\\o//\\o//");
+
+		
 	}
 
 }
