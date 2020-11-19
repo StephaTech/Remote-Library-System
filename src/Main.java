@@ -6,6 +6,6 @@ public class Main {
 		
 		new CmdLine();
 
-	}
+	}//A comment to mark the end of the main method
 
-}
+}//A comment to mark the end of the class
