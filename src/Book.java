@@ -1,62 +1,28 @@
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class Book {
 
-    private long isbn;//long because the number is long
-    private String title, authorName;
-    public final ArrayList<Book> records = new ArrayList<>();
-    //private StackOverflowError
+    long isbn;// long because the number is long
+    String title;
+    String authorName;
 
-    public Book(final long isbn,final String title,final String authorName) {
-
+    public Book(final long isbn, final String title, final String authorName) {
 
         this.isbn = isbn;
         this.title = title;
         this.authorName = authorName;
     }
 
-    public Book(){//constructor without parameter
+    public Book() {
 
     }
 
-    public ArrayList<Book> loadDataBook() {
-
-        try {
-            final BufferedReader br = new BufferedReader(new FileReader("BookInformation.txt"));
-            String contentLine = br.readLine();
-
-            String[] data;
-            long isbn;
-            String title;
-            String authorName;
-
-            while (contentLine != null) {
-
-                data = contentLine.split(",");
-                isbn = Long.parseLong(data[0]);//converting for int
-                title = data[1];
-                authorName = data[2];
-                final Book book = new Book(isbn, title, authorName);
-                records.add(book);
-                contentLine = br.readLine();
-                System.out.println(book.toString());
-            }
-
-        } catch (final IOException ex) {
-            Logger.getLogger(Book.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-        return records;
+    public ArrayList<Book> getBooks() {
+        return BookFactory.getInstance().getBooks();
     }
 
     @Override
     public String toString() {
         return "Book [ISBN:" + isbn + ", Title:" + title + ", Author:" + authorName + "]";
     }
-
 }

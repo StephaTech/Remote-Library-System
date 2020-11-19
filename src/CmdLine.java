@@ -1,8 +1,13 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
 
 public class CmdLine {
+
 
 	public CmdLine() {
 
@@ -81,9 +86,8 @@ public class CmdLine {
 
 	// for the reader be able to put a String input from options
 	public String readingStringFromUser() {
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		String input = "";
-
 		try {
 			input = br.readLine();
 		} catch (IOException e) {
@@ -99,19 +103,29 @@ public class CmdLine {
 	}
 
 	private void searchBook() {
+        System.out.println("Type a title or author name");
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		String optionString = null;
+		String identifyer = "";
 
-		System.out.println("testing");
+		try {
+            identifyer = br.readLine();
+            Book book = BookFactory.getInstance().searchBookByTitleOrAuthor(identifyer);
+            if(book != null){
+                System.out.println(" search - "+ book.authorName + " "+ book.title );
+            }else{
+                System.out.println("not found!");
+            }
+
+		} catch (IOException | NumberFormatException e) {
+			System.out.println("That's not a valid option, please try again");
+		}
 
 	}
 
 	private void listBook() {
-
-		Book book = new Book();
-		book.loadDataBook();
-
-		System.out.println("\\o//\\o//\\o//\\o//\\o//\\o//\\o//\\o//\\\\o//\\o//\\o//\\o//\\o//\\o//\\o//\\o//");
-		System.out.println("\\o//\\o//\\o//\\o//\\o//\\o//\\o//\\o//\\\\o//\\o//\\o//\\o//\\o//\\o//\\o//\\o//");
-		System.out.println("\\o//\\o//\\o//\\o//\\o//\\o//\\o//\\o//\\\\o//\\o//\\o//\\o//\\o//\\o//\\o//\\o//");
+        ArrayList<Book> books =  BookFactory.getInstance().getBooks();
+		System.out.println(books.toString());
 	}
 
 	private void searchReader() {
