@@ -23,6 +23,6 @@ public class Book {
 
     @Override
     public String toString() {
-        return "Book [ISBN:" + isbn + ", Title:" + title + ", Author:" + authorName + "]";
+        return "Book [ISBN:" + isbn + ", Title:" + title + ", Author:" + authorName + "]\n";
     }
 }

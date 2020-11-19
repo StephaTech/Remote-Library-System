@@ -125,6 +125,21 @@ public class CmdLine {
 
 	private void listBook() {
         ArrayList<Book> books =  BookFactory.getInstance().getBooks();
+         System.out.println("1 - orde by title | 2 - orde by author name");
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		String optionString = null;
+		int option = 2;
+		try {
+            option  = Integer.parseInt(br.readLine());
+            BookFactory.getInstance().sortBooksBy(option);
+            
+            ArrayList<Book> book = BookFactory.getInstance().getBooks();
+
+            System.out.println(BookFactory.getInstance().getBooks().toArray());
+		} catch (IOException | NumberFormatException e) {
+			System.out.println("That's not a valid option, please try again");
+		}
+
 		System.out.println(books.toString());
 	}
 

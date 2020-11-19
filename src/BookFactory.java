@@ -15,7 +15,7 @@ public class BookFactory {
     private BookFactory() {
         loadBooksFromFile();
     }
-
+//singleton
     public static BookFactory getInstance() {
         if (INSTANCE == null) {
             INSTANCE = new BookFactory();
@@ -25,6 +25,24 @@ public class BookFactory {
 
     public ArrayList<Book> getBooks() {
         return books;
+    }
+
+    public void sortBooksBy(int option) {
+        if (option == 1) {
+            Collections.sort(books, new Comparator<Book>() {
+                @Override
+                public int compare(Book o1, Book o2) {
+                    return o1.title.compareTo(o2.title);
+                }
+            });
+        } else if (option == 2) {
+            Collections.sort(books, new Comparator<Book>() {
+                @Override
+                public int compare(Book o1, Book o2) {
+                    return o1.authorName.compareTo(o2.authorName);
+                }
+            });
+        }
     }
 
     private ArrayList<Book> loadBooksFromFile() {
@@ -48,13 +66,6 @@ public class BookFactory {
                 books.add(book);
                 contentLine = br.readLine();
             }
-
-            Collections.sort(books, new Comparator<Book>() {
-                @Override
-                public int compare(Book o1, Book o2) {
-                    return o1.title.compareTo(o2.title);
-                }
-            });
 
         } catch (final IOException ex) {
             Logger.getLogger(Book.class.getName()).log(Level.SEVERE, null, ex);
