@@ -16,7 +16,7 @@ public class Book {
     public Book() {
 
     }
-
+//connection to the singleton
     public ArrayList<Book> getBooks() {
         return BookFactory.getInstance().getBooks();
     }
