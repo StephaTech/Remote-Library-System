@@ -1,6 +1,6 @@
 import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.FileReader;//Import the File class
+import java.io.IOException;//Import the IOException class to handle errors
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -48,7 +48,7 @@ public class BookFactory {
     private ArrayList<Book> loadBooksFromFile() {
 
         try {
-            final BufferedReader br = new BufferedReader(new FileReader("BookInformation.txt"));
+            final BufferedReader br = new BufferedReader(new FileReader("BookInformation.txt"));//specified location
             String contentLine = br.readLine();
 
             String[] data;
@@ -75,12 +75,12 @@ public class BookFactory {
 
     // linear Search
     public Book searchBookByTitleOrAuthor(final String identifyer) {
-        for (int i = 0; i < books.size(); i++) {
-            if (books.get(i).title.equals(identifyer) || books.get(i).authorName.equals(identifyer)) {
-                return books.get(i);
+        for (int i = 0; i < books.size(); i++) {//I want stop when find the element
+            if (books.get(i).title.equals(identifyer) || books.get(i).authorName.equals(identifyer)) {//comparison
+                return books.get(i);//the position where my element is i
             }
         }
-        return null;
+        return null;//if is not inside the collection, this will show the elment is not there
     }
 
 }

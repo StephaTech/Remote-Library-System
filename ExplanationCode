@@ -1,0 +1,38 @@
+*************Explanation o code structure********************
+I included the following entities
+Book: modeling all data relevant to the users of the library as 
+		isbn(as the id )
+		title
+		authorName
+BookFactory
+Cmdline 
+Main
+Reader: modeling all data relevant to the users of the library as 
+		idReader
+		
+ReaderFactory
+WaitingList
+Menu
+options 1 and 3 I code linear search it compares the element key sequentially with each element 
+in the list BookInformation.txt and ReaderInformation.txt and is able to matches if is not then the search returns -1. Why I dindt used a binary search?
+because the BookInformation.txt and ReaderInformation.txt is simple and small list
+
+
+
+*********Design justification**********************
+I design a menu 1 to 9 interacting with the user choices
+
+
+
+
+
+**************Text file structure******************
+As the libray doesnt have budget for a database I used txt.file for ensure persistency of the data for when the program is executed  automatically load
+onto memory the data that exists on the path BookInformation.txt and ReaderInformation.txt
+Necessary 
+import java.io.IOException;
+BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+Calling a method inside my class BookFactory.java as
+	    private ArrayList<Book> loadBooksFromFile() 
+	    final BufferedReader br = new BufferedReader(new FileReader("BookInformation.txt"));
+			

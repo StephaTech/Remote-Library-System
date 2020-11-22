@@ -8,7 +8,6 @@ import java.util.List;
 
 public class CmdLine {
 
-
 	public CmdLine() {
 
 		int option = -1;
@@ -86,7 +85,7 @@ public class CmdLine {
 
 	// for the reader be able to put a String input from options
 	public String readingStringFromUser() {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		String input = "";
 		try {
 			input = br.readLine();
@@ -103,19 +102,19 @@ public class CmdLine {
 	}
 
 	private void searchBook() {
-        System.out.println("Type a title or author name");
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		System.out.println("Type a title or author name");
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		String optionString = null;
 		String identifyer = "";
 
 		try {
-            identifyer = br.readLine();
-            Book book = BookFactory.getInstance().searchBookByTitleOrAuthor(identifyer);
-            if(book != null){
-                System.out.println(" search - "+ book.authorName + " "+ book.title );
-            }else{
-                System.out.println("not found!");
-            }
+			identifyer = br.readLine();
+			Book book = BookFactory.getInstance().searchBookByTitleOrAuthor(identifyer);
+			if (book != null) {
+				System.out.println(" search - " + book.authorName + " " + book.title);
+			} else {
+				System.out.println("not found!");
+			}
 
 		} catch (IOException | NumberFormatException e) {
 			System.out.println("That's not a valid option, please try again");
@@ -124,18 +123,18 @@ public class CmdLine {
 	}
 
 	private void listBook() {
-        ArrayList<Book> books =  BookFactory.getInstance().getBooks();
-         System.out.println("1 - orde by title | 2 - orde by author name");
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		ArrayList<Book> books = BookFactory.getInstance().getBooks();
+		System.out.println("1 - orde by title | 2 - orde by author name");
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		String optionString = null;
 		int option = 2;
 		try {
-            option  = Integer.parseInt(br.readLine());
-            BookFactory.getInstance().sortBooksBy(option);
-            
-            ArrayList<Book> book = BookFactory.getInstance().getBooks();
+			option = Integer.parseInt(br.readLine());
+			BookFactory.getInstance().sortBooksBy(option);
 
-            System.out.println(BookFactory.getInstance().getBooks().toArray());
+			ArrayList<Book> book = BookFactory.getInstance().getBooks();
+
+			System.out.println(BookFactory.getInstance().getBooks().toArray());
 		} catch (IOException | NumberFormatException e) {
 			System.out.println("That's not a valid option, please try again");
 		}
@@ -144,14 +143,45 @@ public class CmdLine {
 	}
 
 	private void searchReader() {
-		// TODO Auto-generated method stub
+		System.out.println("Type the Id Reader or the Name");
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		String optionString = null;
+		String identifyer = "";
+
+		try {
+			identifyer = br.readLine();
+			Reader reader = ReaderFactory.getInstance().searchReaderByIdOrName(identifyer);
+			if (reader != null) {
+				System.out.println(" search - " + reader.readerName + " " + reader.idReader);
+			} else {
+				System.out.println("not found!");
+			}
+
+		} catch (IOException | NumberFormatException e) {
+			System.out.println("That's not a valid option, please try again");
+		}
 
 	}
 
 	private void listReader() {
 
-		Reader reader = new Reader();
-		reader.loadDataReader();
+		ArrayList<Reader> readers = ReaderFactory.getInstance().getReader();
+		System.out.println("1 - orde by ID | 2 - orde by reader name");
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		String optionString = null;
+		int option = 2;
+		try {
+			option = Integer.parseInt(br.readLine());
+			ReaderFactory.getInstance().sortReadersBy(option);
+
+			ArrayList<Reader> reader = ReaderFactory.getInstance().getReader();
+
+			System.out.println(ReaderFactory.getInstance().getReader().toArray());
+		} catch (IOException | NumberFormatException e) {
+			System.out.println("That's not a valid option, please try again");
+		}
+
+		System.out.println(readers.toString());
 
 		System.out.println("\\o//\\o//\\o//\\o//\\o//\\o//\\o//\\o//\\\\o//\\o//\\o//\\o//\\o//\\o//\\o//\\o//");
 		System.out.println("\\o//\\o//\\o//\\o//\\o//\\o//\\o//\\o//\\\\o//\\o//\\o//\\o//\\o//\\o//\\o//\\o//");
