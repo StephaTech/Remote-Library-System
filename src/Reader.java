@@ -6,73 +6,30 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Reader {
-	private int idReader;
-	private String readerName;
-	private long mobile;//I might can use as a string b/ I wont do any count with it
-	private final ArrayList<Reader> readerRecords = new ArrayList<>();
+	 int idReader;
+	 String readerName;
+	 String readerAddress;//I might can use as a string b/ I wont do any count with it
+	//private final ArrayList<Reader> readerRecords = new ArrayList<>();
 	
 	
-	public Reader(int idReader, String readerName, long mobile) {
+	public Reader(int idReader, String readerName, String readerAddress) {
 		
 		this.idReader = idReader;
 		this.readerName = readerName;
-		this.mobile = mobile;
+		this.readerAddress = readerAddress;
 	}
 
 	public Reader() {
 		
 	}
+	//connection to the singleton
+    public ArrayList<Reader> getReaders() {
+        return ReaderFactory.getInstance().getReader();
+    }
 	
-	public ArrayList<Reader> loadDataReader(){
-		try {
-			final BufferedReader buff = new BufferedReader(new FileReader("ReaderInformation.txt"));
-			String contentLine = buff.readLine();
-
-            String[] data;
-            int idReader;
-            String readerName;
-            long mobile;
-
-            while (contentLine != null) {
-
-                data = contentLine.split(",");
-                idReader = Integer.parseInt(data[0]);
-                readerName = data[1];
-                mobile = Long.parseLong(data[2]);
-                final Reader reader = new Reader(idReader, readerName, mobile);
-                readerRecords.add(reader);
-                contentLine = buff.readLine();
-                System.out.println(reader.toString());
-            }
-
-        } catch (final IOException ex) {
-            Logger.getLogger(Reader.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-        return readerRecords;
-	}
-
-//	public int getIdReader() {
-//		return idReader;
-//	}
-//	public void setIdReader(int idReader) {
-//		this.idReader = idReader;
-//	}
-//	public String getName() {
-//		return readerName;
-//	}
-//	public void setName(String name) {
-//		this.readerName = name;
-//	}
-//	public long getMobile() {
-//		return mobile;
-//	}
-//	public void setMobile(long mobile) {
-//		this.mobile = mobile;
-//	}
 	@Override
 	public String toString() {
-		return " [idReader:" + idReader + ", Name:" + readerName + ", Mobile:" + mobile + "]";
+		return " [idReader:" + idReader + ", Name:" + readerName + ", Adress:" + readerAddress + "]";
 	}
 	
 }
