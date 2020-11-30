@@ -77,9 +77,9 @@ public class ReaderFactory {
     }
 
     // linear Search
-    public Reader searchReaderByNameOrId(final String identifyer) {
+    public Reader searchReaderByNameOrId(final String identifier ) {//tentei por +  int= identifier--> nao funciona
         for (int i = 0; i < readers.size(); i++) {//I want stop when find the element
-            if (readers.get(i).readerName.equals(identifyer) || readers.get(i).idReader.equals(identifyer)) {//comparison
+            if (readers.get(i).readerName.equals() || readers.get(i).idReader.equals()) {//???
                 return readers.get(i);//the position where my element is i
             }
         }
