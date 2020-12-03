@@ -222,7 +222,9 @@ public class CmdLine {
 	}
 
 	private void registReaderReturns() {
+		System.out.println("------------------------------------------------------------------");
 		System.out.println("-----------------Return book-----------");
+		
 		
 		System.out.println("Successfully returned book");
 
@@ -231,7 +233,8 @@ public class CmdLine {
 	}
 
 	private void listNextReaderBook() {
-		// TODO Auto-generated method stub
+		System.out.println("-----------------List next reader by book-----------");
+
 
 	}
 
