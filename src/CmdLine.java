@@ -182,7 +182,9 @@ public class CmdLine {
 	private void listReader() {
 
 		ArrayList<Reader> readers = ReaderFactory.getInstance().getReader();
+		System.out.println("------------------------------------------------------------------");
 		System.out.println("1 - orde by ID | 2 - order by reader name");
+		System.out.println("------------------------------------------------------------------");
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		String optionString = null;
 		int option = 2;
