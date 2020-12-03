@@ -44,7 +44,7 @@ public class BookFactory {
             });
         }
     }
-
+//This loads my database
     private ArrayList<Book> loadBooksFromFile() {
 
         try {
@@ -59,7 +59,7 @@ public class BookFactory {
             while (contentLine != null) {
 
                 data = contentLine.split(",");
-                isbn = Long.parseLong(data[0]);// converting for int
+                isbn = Long.parseLong(data[0]);// converts to int
                 title = data[1];
                 authorName = data[2];
                 final Book book = new Book(isbn, title, authorName);
@@ -73,7 +73,7 @@ public class BookFactory {
         return books;
     }
 
-    // linear Search
+    // linear Search(Menu option 1)
     public Book searchBookByTitleOrAuthor(final String identifyer) {
         for (int i = 0; i < books.size(); i++) {//I want stop when find the element
             if (books.get(i).title.equals(identifyer) || books.get(i).authorName.equals(identifyer)) {//comparison
@@ -82,5 +82,5 @@ public class BookFactory {
         }
         return null;//if is not inside the collection, this will show the elment is not there
     }
-
+    
 }

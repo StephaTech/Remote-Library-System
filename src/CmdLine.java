@@ -77,7 +77,10 @@ public class CmdLine {
 			option = Integer.parseInt(optionString);
 
 		} catch (IOException | NumberFormatException e) {
+			System.out.println("------------------------------------------------------------------");
 			System.out.println("That's not a valid option, please try an integer number");
+			System.out.println("------------------------------------------------------------------");
+
 		}
 
 		return option;// returns to the option
@@ -93,7 +96,7 @@ public class CmdLine {
 			System.out.println("Oops! Something went wrong");
 		}
 
-		return input;// or option?
+		return input;
 	}
 
 	private boolean validMenuOption(int option) {
@@ -111,20 +114,31 @@ public class CmdLine {
 			identifyer = br.readLine();
 			Book book = BookFactory.getInstance().searchBookByTitleOrAuthor(identifyer);
 			if (book != null) {
-				System.out.println(" search - " + book.authorName + " " + book.title);
+				System.out.println("\n The Title or the Author matches are: \n ");
+				System.out.println("------------------------------------------------------------------");
+				System.out.println("ISBN: \t\tTitle\t\t\t\t\tAuthor");
+				System.out.println(book.isbn + "   " + book.title + "   " + book.authorName);
+				System.out.println("------------------------------------------------------------------");
+
 			} else {
-				System.out.println("not found!");
+				System.out.println("------------------------------------------------------------------");
+				System.out.println("Sorry, not found!");
+				System.out.println("------------------------------------------------------------------");
+
 			}
 
 		} catch (IOException | NumberFormatException e) {
+			System.out.println("------------------------------------------------------------------");
 			System.out.println("That's not a valid option, please try again");
+			System.out.println("------------------------------------------------------------------");
+
 		}
 
 	}
 
 	private void listBook() {
 		ArrayList<Book> books = BookFactory.getInstance().getBooks();
-		System.out.println("1 - orde by title | 2 - orde by author name");
+		System.out.println("1 - order by title | 2 - order by author name");
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		String optionString = null;
 		int option = 2;
@@ -138,30 +152,32 @@ public class CmdLine {
 		} catch (IOException | NumberFormatException e) {
 			System.out.println("That's not a valid option, please try again");
 		}
-
+		System.out.println("------------------------------------------------------------------");
 		System.out.println(books.toString());
+		System.out.println("------------------------------------------------------------------");
+
 	}
 
 	private void searchReader() {
-		System.out.println("Type the Id Reader or the Name");
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		String optionString = null;
-		String identifyer = "";
-
-		try {
-			identifyer = br.readLine();
-			Reader reader = ReaderFactory.getInstance().searchReaderByIdOrName(identifier);
-			if (reader != null) {
-				System.out.println(" search - " + reader.readerName + " " + reader.idReader);
-			} else {
-				System.out.println("not found!");
-			}
-
-		} catch (IOException | NumberFormatException e) {
-			System.out.println("That's not a valid option, please try again");
-		}
-
-	}
+//		System.out.println("Type the Id Reader or the Name");
+//		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+//		String optionString = null;
+//		String identifyer = "";
+//
+//		try {
+//			identifyer = br.readLine();
+//			Reader reader = ReaderFactory.getInstance().searchReaderByIdOrName(identifier);
+//			if (reader != null) {
+//				System.out.println(" search - " + reader.readerName + " " + reader.idReader);
+//			} else {
+//				System.out.println("not found!");
+//			}
+//
+//		} catch (IOException | NumberFormatException e) {
+//			System.out.println("That's not a valid option, please try again");
+//		}
+//
+}
 
 	private void listReader() {
 
@@ -189,18 +205,26 @@ public class CmdLine {
 
 	}
 
-	private void registReaderborrowed() {
+	private void registReaderborrowed() {//and able to save the new information
 		// TODO Auto-generated method stub
 
 	}
 
-	private void readerWaitingList() {
+	private void readerWaitingList() {//queue//
 		// TODO Auto-generated method stub
+		System.out.println("Type the name of the book:");
+		
+		System.out.println("Type your name reader:");
+
 
 	}
 
 	private void registReaderReturns() {
-		// TODO Auto-generated method stub
+		System.out.println("-----------------Return book-----------");
+		
+		System.out.println("Successfully returned book");
+
+
 
 	}
 
