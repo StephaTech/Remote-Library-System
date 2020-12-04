@@ -1,5 +1,5 @@
 
-public class waitingList {
+public class WaitingList {
 	private String bookQueue;
 	private String readerQueue;
 	private String status;//this atribute should can stay here or should be at class book?
