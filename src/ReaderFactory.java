@@ -11,7 +11,7 @@ public class ReaderFactory {
 
 	private static ReaderFactory INSTANCE;
 	private static ArrayList<Reader> readers = new ArrayList<>();
-	private ArrayList<Borrowings> borrowedBooks = new ArrayList<>();// static?
+	private static ArrayList<Borrowings> borrowedBooks = new ArrayList<>();// static?
 	private ArrayList<WaitingList> waitingBook = new ArrayList<>();
 
 	private ReaderFactory() {
