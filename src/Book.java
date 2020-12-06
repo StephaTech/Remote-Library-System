@@ -12,6 +12,7 @@ public class Book {
         this.isbn = isbn;
         this.title = title;
         this.authorName = authorName;
+        //this.isBorrowed = isBorrowed;
     }
 
     public Book() {
@@ -25,7 +26,7 @@ public class Book {
     @Override
     public String toString() {
 		
-        return "-----------List of books---------" +"Book [ISBN:\t" + isbn + ", Title:\t" + title + ", Author:\t" + authorName + "]\n";
+        return " ISBN:\t" + isbn + ", Title:\t" + title + ", Author:\t" + authorName + "\n";
         
     }
 }

@@ -2,14 +2,15 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Reader {
 	 int idReader;
 	 String readerName;
-	 String readerAddress;//I might can use as a string b/ I wont do any count with it
-	//private final ArrayList<Reader> readerRecords = new ArrayList<>();
+	 String readerAddress;
+	 List<Book> books = new ArrayList<>();
 	
 	
 	public Reader(int idReader, String readerName, String readerAddress) {
@@ -29,7 +30,7 @@ public class Reader {
 	
 	@Override
 	public String toString() {
-		return " [idReader:" + idReader + ", Name:" + readerName + ", Adress:" + readerAddress + "]";
+		return " Reader ID:\t" + idReader + ", Name:\t" + readerName + ", Address:\t" + readerAddress+ "\n";
 	}
 	
 }

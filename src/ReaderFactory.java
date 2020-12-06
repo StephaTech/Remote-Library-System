@@ -82,22 +82,22 @@ public class ReaderFactory {
     }
 
     // linear Search(Menu option 3)
-    public Reader searchReaderById(Long idReader) {// tentei por + int= identifier--> nao funciona
+    public Reader searchReaderById(long id) {
         for (int i = 0; i < readers.size(); i++) {// I want stop when find the element
-            if (readers.get(i).idReader == idReader) {// ???
+            if (readers.get(i).idReader == id) {
                 return readers.get(i);// the position where my element is i
             }
         }
         return null;// if is not inside the collection, this will show the elment is not there
     }
-
-    public Reader searchReaderByName(String name) {// tentei por + int= identifier--> nao funciona
+    // linear Search(Menu option 3)
+    public Reader searchReaderByName(String name) {
         for (int i = 0; i < readers.size(); i++) {// I want stop when find the element
-            if (readers.get(i).readerName.contains(name)) {// ???
+            if (readers.get(i).readerName.contains(name)) {
                 return readers.get(i);// the position where my element is i
             }
         }
-        return null;// if is not inside the collection, this will show the elment is not there
+        return null;// if is not inside the collection, this will show the element is not there
     }
 
     public static boolean isNumber(String identify) {

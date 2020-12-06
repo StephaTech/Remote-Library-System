@@ -85,13 +85,26 @@ public class BookFactory {
         return null;// if is not inside the collection, this will show the elment is not there
     }
 
-    public boolean borrowBook(long isbn) {
+    public boolean borrowBook(long isbn, int readerId) {
         for (int i = 0; i < books.size(); i++) {
             if (books.get(i).isbn == isbn && (!books.get(i).isBorrowed)) {
                 books.get(i).isBorrowed = true;
+                Reader reader = ReaderFactory.getInstance().searchReaderById(readerId);
+                reader.books.add(books.get(i));
                 return true;
             }
         }
         return false;
     }
+   public boolean returnBook(long isbn, int readerId) {
+        for (int i = 0; i < books.size(); i++) {
+            if (books.get(i).isbn == isbn && (books.get(i).isBorrowed)) {
+                books.get(i).isBorrowed = false;
+                Reader reader = ReaderFactory.getInstance().searchReaderById(readerId);
+                reader.books.remove(books.get(i));
+                return true;
+            }
+        }
+        return false;
+    } 
 }
