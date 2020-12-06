@@ -15,7 +15,8 @@ public class BookFactory {
     private BookFactory() {
         loadBooksFromFile();
     }
-//singleton
+
+    // singleton
     public static BookFactory getInstance() {
         if (INSTANCE == null) {
             INSTANCE = new BookFactory();
@@ -44,11 +45,12 @@ public class BookFactory {
             });
         }
     }
-//This loads my database
+
+    // This loads my database
     private ArrayList<Book> loadBooksFromFile() {
 
         try {
-            final BufferedReader br = new BufferedReader(new FileReader("BookInformation.txt"));//specified location
+            final BufferedReader br = new BufferedReader(new FileReader("BookInformation.txt"));// specified location
             String contentLine = br.readLine();
 
             String[] data;
@@ -75,12 +77,21 @@ public class BookFactory {
 
     // linear Search(Menu option 1)
     public Book searchBookByTitleOrAuthor(final String identifyer) {
-        for (int i = 0; i < books.size(); i++) {//I want stop when find the element
-            if (books.get(i).title.equals(identifyer) || books.get(i).authorName.equals(identifyer)) {//comparison
-                return books.get(i);//the position where my element is i
+        for (int i = 0; i < books.size(); i++) {// I want stop when find the element
+            if (books.get(i).title.contains(identifyer) || books.get(i).authorName.contains(identifyer)) {// comparison
+                return books.get(i);// the position where my element is i
             }
         }
-        return null;//if is not inside the collection, this will show the elment is not there
+        return null;// if is not inside the collection, this will show the elment is not there
     }
-    
+
+    public boolean borrowBook(long isbn) {
+        for (int i = 0; i < books.size(); i++) {
+            if (books.get(i).isbn == isbn && (!books.get(i).isBorrowed)) {
+                books.get(i).isBorrowed = true;
+                return true;
+            }
+        }
+        return false;
+    }
 }

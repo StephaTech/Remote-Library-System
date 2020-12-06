@@ -5,6 +5,7 @@ public class Book {
     long isbn;// long because the number is long
     String title;
     String authorName;
+    boolean isBorrowed;
 
     public Book(final long isbn, final String title, final String authorName) {
 
